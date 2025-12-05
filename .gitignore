@@ -1,24 +1,35 @@
-# Logs
-logs
+# =========================================================
+# 基本的な Node / React / Vite / Next / Vue プロジェクト向け
+# =========================================================
+
+# --- Node modules ---
+node_modules/
+
+# --- Build outputs ---
+dist/
+build/
+out/
+
+# --- Temporary files ---
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# --- Environment files ---
+.env
+.env.*        # APIキーなどは外部に出さない
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# --- Editor directories ---
+.vscode/
+.idea/
+
+# --- MacOS noise ---
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+
+# --- Logs folder ---
+# logs/ はバージョン管理対象にするので ignore しない
+# ただし、万が一 build ツールが参照しないよう exclude だけ明示
+logs/**/*.tmp
+logs/**/*.bak
