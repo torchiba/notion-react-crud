@@ -33,3 +33,5 @@ pnpm-debug.log*
 # ただし、万が一 build ツールが参照しないよう exclude だけ明示
 logs/**/*.tmp
 logs/**/*.bak
+*storybook.log
+storybook-static
