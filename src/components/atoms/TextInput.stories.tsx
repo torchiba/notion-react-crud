@@ -25,3 +25,9 @@ export const onChange: Story = {
     },
   },
 };
+
+export const Empty: Story = {
+  args: {
+    value: "",
+  },
+};
