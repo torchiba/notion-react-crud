@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "./components/atoms/Button";
 import Heading from "./components/atoms/Heading";
 import NotionItemForm from "./components/molecules/NotionItemForm";
+import NotionItemList from "./components/organism/NotionItemList";
 
 type NotionItem = {
   id: number;
@@ -56,99 +57,15 @@ function App() {
       </section>
 
       {/* 一覧表示エリア */}
-      <section>
-        <Heading>アイテム一覧</Heading>
-
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginTop: "12px",
-          }}
-        >
-          <thead>
-            <tr>
-              <th
-                style={{
-                  textAlign: "left",
-                  borderBottom: "1px solid #ccc",
-                  padding: "8px"
-                }}
-              >
-                 タイトル
-              </th>
-              <th
-                style={{
-                  textAlign: "left",
-                  borderBottom: "1px solid #ccc",
-                  padding: "8px"
-                }}
-              >
-                ステータス
-              </th>
-              <th
-                style={{
-                  textAlign: "left",
-                  borderBottom: "1px solid #ccc",
-                  padding: "8px"
-                }}
-              >
-                 更新日時
-              </th>
-              <th
-                style={{
-                  textAlign: "left",
-                  borderBottom: "1px solid #ccc",
-                  padding: "8px"
-                }}
-              >
-                操作
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {dummyItems.map((item) => (
-              <tr key={item.id}>
-                <td
-                  style={{
-                    borderBottom: "1px solid #eee",
-                    padding: "8px",
-                  }}
-                >
-                  {item.title}
-                </td>
-                <td
-                  style={{
-                    borderBottom: "1px solid #eee",
-                    padding: "8px",
-                  }}
-                >
-                  {item.status}
-                </td>
-                <td
-                  style={{
-                    borderBottom: "1px solid #eee",
-                    padding: "8px",
-                  }}
-                >
-                  {item.updateAt}
-                </td>
-                <td
-                  style={{
-                    borderBottom: "1px solid #eee",
-                    padding: "8px",
-                    display: "flex",
-                    gap: "8px"
-                  }}
-                >
-                  <Button>編集</Button>
-                  <Button>削除</Button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <NotionItemList
+        items={dummyItems}
+        onEdit={(id) => {
+          alert(`ID ${id}: Edit!`)
+        }}
+        onDelete={(id) => {
+          alert(`ID ${id}: Delete!`)
+        }}
+      />
     </div>
   )
 }
